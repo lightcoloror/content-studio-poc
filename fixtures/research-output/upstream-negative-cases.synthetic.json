@@ -1,0 +1,29 @@
+{
+  "schema": "research-output-negative-fixtures.v1",
+  "cases": [
+    {
+      "id": "candidate-evidence",
+      "target": "evidence_fixture_support",
+      "changes": {"status": "candidate"},
+      "expected_blocker": "candidate_evidence_not_reviewed"
+    },
+    {
+      "id": "verified-contradiction",
+      "target": "evidence_fixture_rejected_contradiction",
+      "changes": {"status": "verified"},
+      "expected_blocker": "unresolved_verified_contradiction"
+    },
+    {
+      "id": "dangling-source-link",
+      "target": "evidence_fixture_support",
+      "changes": {"source_id": "source_missing"},
+      "expected_blocker": "evidence_source_ref_missing"
+    },
+    {
+      "id": "ai-synthesis-marked-verified",
+      "target": "evidence_fixture_support",
+      "changes": {"notes": "AI synthesis: generated summary, not source evidence."},
+      "expected_blocker": "ai_synthesis_not_fact"
+    }
+  ]
+}

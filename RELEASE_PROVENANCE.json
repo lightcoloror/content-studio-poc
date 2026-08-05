@@ -1,0 +1,48 @@
+{
+  "schema_version": "release-provenance.v1",
+  "release_kind": "sanitized_clean_root",
+  "license": "Apache-2.0",
+  "source_baselines": {
+    "content_studio_head": "0bec8c02f5a5d9830fc4df4738cbe76d6eaa9110",
+    "question_research_poc_head": "51ca30ac24bf84dd838b30569aee4e3bc6c3f59e"
+  },
+  "source_files": [
+    {
+      "release_path": "scripts/research_output_adapter.py",
+      "source_sha256": "c8e0f929e83150af49fd20024c43b8be58f6715cc94ed75204167d4636763763",
+      "modification": "repo-local schema discovery and public-release version bump",
+      "release_sha256": "ea60930d76e6277ed0fe7a2eb6c830f59b68ecd6fb6197e041c5b474bd4b9931"
+    },
+    {
+      "release_path": "scripts/article_visual_pipeline.py",
+      "source_sha256": "234569c762531a7f6bd11105550661417869bccf9d286cf00e4400d9e47063e1",
+      "modification": "none"
+    },
+    {
+      "release_path": "scripts/article_visual_validation.py",
+      "source_sha256": "e025680f93a77a5ec0a02994c8bc855edad314d8d5d57666219eec86b75df8f9",
+      "modification": "none"
+    }
+  ],
+  "contract_hashes": {
+    "schemas/content-item.schema.json": "317538cabca86a3a39092e2b77d597fd6cc5ed963671a46fbe4d9ae7749337ef",
+    "schemas/content-video-brief.v1.schema.json": "d5a8e7b15528b8160f67b90ca870120dd80724553dbaa0770f346446e2395ecb",
+    "schemas/vendor/research-output.v1.schema.json": "3c2e0e9a05034b1ffa3693735da128c7d3e114ddb155f11668120b974fee1009"
+  },
+  "synthetic_fixture_sha256": {
+    "fixtures/research-output/verified.synthetic.json": "7ee1163d4ab417e6192dce4a1c62926e8c0298a2b3056cca0dd1965dfa81cb40"
+  },
+  "excluded_classes": [
+    "private content items",
+    "operational outputs",
+    "draft publication packages",
+    "manual publication records",
+    "user confirmations",
+    "real questions and account data",
+    "customer and policy data",
+    "downloaded media and personal photos",
+    "absolute workstation paths",
+    "internal owner routing metadata"
+  ],
+  "publication_boundary": "code_repository_only_no_content_publication"
+}

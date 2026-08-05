@@ -1,0 +1,14 @@
+[project]
+name = "content-studio-poc"
+version = "0.1.0"
+description = "Offline-first content contracts and a fail-closed research-output adapter."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "Apache-2.0" }
+dependencies = ["jsonschema==4.25.1"]
+
+[project.urls]
+Repository = "https://github.com/lightcoloror/content-studio-poc"
+
+[tool.unittest]
+start-directory = "tests"

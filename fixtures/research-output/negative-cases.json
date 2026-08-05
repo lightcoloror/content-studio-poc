@@ -1,0 +1,57 @@
+{
+  "schema": "research-output-adapter-negative-fixtures.v1",
+  "base_fixture": "fixtures/research-output/verified.synthetic.json",
+  "upstream_negative_fixture": "fixtures/research-output/upstream-negative-cases.synthetic.json",
+  "cases": [
+    {
+      "id": "missing-evidence-object",
+      "mutation": "remove_verified_support_object",
+      "expected_status": "missing_evidence_reference"
+    },
+    {
+      "id": "stale-source",
+      "mutation": "mark_used_source_stale",
+      "expected_status": "stale_or_unknown_source"
+    },
+    {
+      "id": "unresolved-contradiction",
+      "mutation": "reopen_verified_selected_claim_contradiction",
+      "expected_status": "unresolved_verified_contradiction"
+    },
+    {
+      "id": "copyright-aggregate-over-limit",
+      "mutation": "append_same_source_quote_over_aggregate_limit",
+      "expected_status": "copyright_quote_limit"
+    },
+    {
+      "id": "sensitive-content-unredacted",
+      "mutation": "append_sensitive_blocker_unknown",
+      "expected_status": "sensitive_content_blocked"
+    },
+    {
+      "id": "dangling-evidence-claim",
+      "mutation": "point_evidence_to_missing_claim",
+      "expected_status": "evidence_claim_ref_missing"
+    },
+    {
+      "id": "dangling-evidence-source",
+      "mutation": "point_evidence_to_missing_source",
+      "expected_status": "evidence_source_ref_missing"
+    },
+    {
+      "id": "ai-synthesis-as-fact",
+      "mutation": "mark_verified_support_as_ai_synthesis",
+      "expected_status": "ai_synthesis_not_fact"
+    },
+    {
+      "id": "candidate-evidence-not-reviewed",
+      "mutation": "downgrade_support_to_candidate",
+      "expected_status": "candidate_evidence_not_reviewed"
+    },
+    {
+      "id": "transport-success-but-answer-blocked",
+      "mutation": "block_guarded_answer",
+      "expected_status": "guarded_answer_not_verified"
+    }
+  ]
+}

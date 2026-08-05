@@ -1,0 +1,67 @@
+# Replace the example repository before using the editor.
+backend:
+  name: github
+  repo: example-owner/content-studio-poc
+  branch: main
+
+media_folder: static/uploads
+public_folder: /uploads
+
+collections:
+  - name: content_items
+    label: Content items
+    folder: content/items
+    format: json
+    create: true
+    identifier_field: content_id
+    slug: "{{fields.content_id}}"
+    summary: "{{title}} · {{primary_format}} · {{status}}"
+    fields:
+      - { name: schema_version, widget: hidden, default: "0.2" }
+      - { name: content_id, label: Content ID, widget: string }
+      - { name: title, label: Title, widget: string }
+      - name: primary_format
+        label: Primary format
+        widget: select
+        options: [moments, graphic-note, longform, video-script, multi-channel]
+      - name: status
+        label: Status
+        widget: select
+        options: [candidate, evidence, outline, draft, review, publish-ready, published, feedback, archived]
+      - name: tags
+        label: Tags
+        widget: list
+        required: false
+        field: { name: value, label: Tag, widget: string }
+      - name: provenance
+        label: Provenance
+        widget: code
+        default_language: json
+      - name: gates
+        label: Quality gates
+        widget: code
+        default_language: json
+      - name: intent
+        label: Intent
+        widget: code
+        default_language: json
+      - name: composition
+        label: Composition
+        widget: code
+        default_language: json
+      - name: visual
+        label: Visual plan
+        widget: code
+        default_language: json
+      - name: qa
+        label: QA
+        widget: code
+        default_language: json
+      - name: publication
+        label: Publication boundary
+        widget: code
+        default_language: json
+      - name: feedback
+        label: Feedback
+        widget: code
+        default_language: json
