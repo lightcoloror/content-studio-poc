@@ -23,6 +23,25 @@ Copyright (c) Sveltia CMS contributors. Permission is granted under the MIT Lice
 
 Copyright (c) Julian Berman. Permission is granted under the MIT License; see the upstream repository for its complete license text.
 
+
+## markdown-it-py
+
+- Project: https://github.com/executablebooks/markdown-it-py
+- Runtime version pinned by this release: `4.2.0`
+- Official tag commit: `36c5f547144df2d01970a5792d68c71a3380b227`
+- License: MIT
+- Use: CommonMark parsing and safe Markdown-to-HTML structure in the article visual adapter; no source is vendored.
+
+The installed distribution also carries the upstream markdown-it acknowledgement under MIT.
+
+## mdurl
+
+- Project: https://github.com/executablebooks/mdurl
+- Runtime version resolved with this release: `0.1.2`
+- Official tag object / commit: `fb26485560d0589d4ed56255a4fcf87d09752dbf` / `596bf1c8752de45fa576a52c315d6d8cc5bb1a4e`
+- License: MIT
+- Use: transitive URL parsing dependency of `markdown-it-py`; no source is vendored.
+
 ## Upstream research-output contract snapshot
 
 `schemas/vendor/research-output.v1.schema.json` is an exact first-party contract snapshot from `question-research-poc` commit `51ca30ac24bf84dd838b30569aee4e3bc6c3f59e`, SHA-256 `3c2e0e9a05034b1ffa3693735da128c7d3e114ddb155f11668120b974fee1009`. It is included under this repository's Apache-2.0 license with provenance preserved.

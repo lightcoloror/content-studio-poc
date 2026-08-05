@@ -4,7 +4,8 @@
   "license": "Apache-2.0",
   "source_baselines": {
     "content_studio_head": "0bec8c02f5a5d9830fc4df4738cbe76d6eaa9110",
-    "question_research_poc_head": "51ca30ac24bf84dd838b30569aee4e3bc6c3f59e"
+    "question_research_poc_head": "51ca30ac24bf84dd838b30569aee4e3bc6c3f59e",
+    "public_sync_base": "c248b1f0e55ffc65f2b6cd57685cdb830ed504af"
   },
   "source_files": [
     {
@@ -22,6 +23,16 @@
       "release_path": "scripts/article_visual_validation.py",
       "source_sha256": "e025680f93a77a5ec0a02994c8bc855edad314d8d5d57666219eec86b75df8f9",
       "modification": "none"
+    },
+    {
+      "release_path": "tests/test_article_visual_pipeline.py",
+      "source_sha256": "6035966af4849622425cabb3369c3f7b63c4d7bbed2d237cccd36f2be5f83db6",
+      "modification": "fully synthetic rewrite with injected offline fetcher"
+    },
+    {
+      "release_path": "tests/test_article_visual_validation.py",
+      "source_sha256": "819d1961f6c48255aebae1bb0d9676811cbe33524c4553d73b4dddc58217ae77",
+      "modification": "repo-local import and fully synthetic visual plan"
     }
   ],
   "contract_hashes": {
@@ -30,7 +41,9 @@
     "schemas/vendor/research-output.v1.schema.json": "3c2e0e9a05034b1ffa3693735da128c7d3e114ddb155f11668120b974fee1009"
   },
   "synthetic_fixture_sha256": {
-    "fixtures/research-output/verified.synthetic.json": "7ee1163d4ab417e6192dce4a1c62926e8c0298a2b3056cca0dd1965dfa81cb40"
+    "fixtures/research-output/verified.synthetic.json": "27ae62971f6754009859be87f07a47d9673484c5dea32db0f48e13ce0779a97c",
+    "fixtures/research-output/negative-cases.json": "7353e5860b9dd94cc37e08a20e777be63925982b5fa0213d0d6cdd7bfa628e64",
+    "fixtures/research-output/upstream-negative-cases.synthetic.json": "023c2ccca1cb47b3d93cb464efd2f0d35e2a298532e0bf01d736a91f2778392c"
   },
   "excluded_classes": [
     "private content items",
@@ -44,5 +57,25 @@
     "absolute workstation paths",
     "internal owner routing metadata"
   ],
-  "publication_boundary": "code_repository_only_no_content_publication"
+  "publication_boundary": "code_repository_only_no_content_publication",
+  "dependency_inventory": [
+    {
+      "name": "jsonschema",
+      "version": "4.25.1",
+      "license": "MIT"
+    },
+    {
+      "name": "markdown-it-py",
+      "version": "4.2.0",
+      "license": "MIT",
+      "source_commit": "36c5f547144df2d01970a5792d68c71a3380b227"
+    },
+    {
+      "name": "mdurl",
+      "version": "0.1.2",
+      "license": "MIT",
+      "relationship": "transitive",
+      "source_commit": "596bf1c8752de45fa576a52c315d6d8cc5bb1a4e"
+    }
+  ]
 }

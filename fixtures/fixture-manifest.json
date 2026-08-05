@@ -5,17 +5,20 @@
     {
       "path": "fixtures/research-output/verified.synthetic.json",
       "synthetic_only": true,
-      "purpose": "verified offline adapter input"
+      "purpose": "verified offline adapter input",
+      "sha256": "27ae62971f6754009859be87f07a47d9673484c5dea32db0f48e13ce0779a97c"
     },
     {
       "path": "fixtures/research-output/negative-cases.json",
       "synthetic_only": true,
-      "purpose": "adapter mutation matrix"
+      "purpose": "adapter mutation matrix",
+      "sha256": "7353e5860b9dd94cc37e08a20e777be63925982b5fa0213d0d6cdd7bfa628e64"
     },
     {
       "path": "fixtures/research-output/upstream-negative-cases.synthetic.json",
       "synthetic_only": true,
-      "purpose": "upstream fail-closed contract examples"
+      "purpose": "upstream fail-closed contract examples",
+      "sha256": "023c2ccca1cb47b3d93cb464efd2f0d35e2a298532e0bf01d736a91f2778392c"
     }
   ]
 }

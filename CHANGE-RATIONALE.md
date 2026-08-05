@@ -33,3 +33,13 @@ Before publication, delete this clean release directory. After publication, make
 ## Reuse decision
 
 No shared runtime module was extracted with Self Media because the two public cores solve different tasks: Content Studio adapts verified research into content artifacts; Self Media validates routing and operating contracts. Only release-hygiene commands overlap, which is not enough to justify a third package.
+
+## 2026-08-05 22:09:08 +08:00 — sanitized public increment
+
+- Acting tool/model: Codex (GPT-5.6 Sol)
+- Intent: synchronize the reusable article-visual verification coverage and consumer documentation from the private development tree.
+- Decision: add two synthetic-only visual test modules and two generic guides; declare the already-imported Markdown parser and its transitive dependency. Do not copy the domain-specific chart renderer, content objects, output artifacts, media, or private configuration.
+- Reason: the visual scripts were already public but their runtime dependency and safety behavior were under-tested. The excluded renderer hardcodes domain, workstation, and internal task metadata and is not a safe minimal patch.
+- Evidence: source-file hashes in RELEASE_PROVENANCE.json, local package metadata for MIT licenses, unit tests with an injected fake fetcher, release audit, Gitleaks, and clean-clone validation.
+- Effective scope: public article visual validation, optional candidate-review documentation, and research-output consumer guidance only.
+- Rollback: revert this single increment commit. The private development worktree is unchanged and remains the source of excluded local-only assets.

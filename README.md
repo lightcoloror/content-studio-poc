@@ -14,6 +14,8 @@ This public release contains only reusable code, JSON Schemas, an optional Svelt
   - draft-only Markdown and responsive HTML;
   - a draft-only video brief;
   - a deterministic manifest with hashes.
+- `article_visual_pipeline.py`: a human-reviewed visual candidate and insertion adapter; candidate search is optional and never runs during offline validation.
+- `article_visual_validation.py`: deterministic rights, evidence-role, alt-text, and generated-image opt-in gates.
 - A minimal Sveltia CMS shell pinned to a fixed release and SRI hash.
 - Synthetic positive and negative fixtures.
 
@@ -40,4 +42,4 @@ git diff --check
 python -m unittest discover -s tests -v
 ```
 
-See `CONTENT_NOTICE.md`, `THIRD_PARTY_NOTICES.md`, and `RELEASE_PROVENANCE.json` before redistributing.
+See `docs/article-visual-pipeline.md`, `docs/research-output-consumer-guide.md`, `CONTENT_NOTICE.md`, `THIRD_PARTY_NOTICES.md`, and `RELEASE_PROVENANCE.json` before redistributing.
