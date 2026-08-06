@@ -41,12 +41,22 @@ def main() -> int:
     research_schema = ROOT / "schemas/vendor/research-output.v1.schema.json"
     content_schema = ROOT / "schemas/content-item.schema.json"
     video_schema = ROOT / "schemas/content-video-brief.v1.schema.json"
-    for schema_path in (research_schema, content_schema, video_schema):
+    gateway_input_schema = ROOT / "schemas/content-studio-gateway-input-manifest.v1.schema.json"
+    gateway_result_schema = ROOT / "schemas/content-studio-gateway-result.v1.schema.json"
+    for schema_path in (
+        research_schema,
+        content_schema,
+        video_schema,
+        gateway_input_schema,
+        gateway_result_schema,
+    ):
         schema = load_json(schema_path)
         Draft202012Validator.check_schema(schema)
 
     fixture = load_json(ROOT / "fixtures/research-output/verified.synthetic.json")
     Draft202012Validator(load_json(research_schema)).validate(fixture)
+    gateway_fixture = load_json(ROOT / "fixtures/model-gateway/research-input-manifest.synthetic.json")
+    Draft202012Validator(load_json(gateway_input_schema)).validate(gateway_fixture)
     preflight = adapter.contract_preflight(research_schema, content_schema, video_schema)
     if preflight["status"] != "contract_ready":
         print("contract preflight did not become ready", file=sys.stderr)
@@ -56,7 +66,7 @@ def main() -> int:
         for error in errors:
             print(f"release_audit: {error}", file=sys.stderr)
         return 1
-    print("PASS: three Schemas, synthetic input, adapter preflight, and release hygiene.")
+    print("PASS: five Schemas, synthetic inputs, adapter preflight, and release hygiene.")
     if args.no_tests:
         return 0
     completed = subprocess.run(

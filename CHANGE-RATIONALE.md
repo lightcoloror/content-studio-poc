@@ -43,3 +43,13 @@ No shared runtime module was extracted with Self Media because the two public co
 - Evidence: source-file hashes in RELEASE_PROVENANCE.json, local package metadata for MIT licenses, unit tests with an injected fake fetcher, release audit, Gitleaks, and clean-clone validation.
 - Effective scope: public article visual validation, optional candidate-review documentation, and research-output consumer guidance only.
 - Rollback: revert this single increment commit. The private development worktree is unchanged and remains the source of excluded local-only assets.
+
+## 2026-08-06 09:10:42 +08:00 — unified Gateway consumer Wave 3
+
+- Acting tool/model: Codex (GPT-5.6 Sol)
+- Intent: let Content Studio request draft-only writing and visual-description candidates through the canonical multi-provider Gateway without duplicating the Gateway control plane.
+- Decision: add two Content Studio-owned JSON Schemas, one thin Python consumer, one synthetic exact-artifact manifest, loopback-only positive and negative regression tests, and a consumer guide. Map `outline` and `summary` to Gateway `draft_only/text`; map `rewrite` directly; map text visual descriptions to `draft_only/text`; permit `vision_candidate/vision` only with exact image consent.
+- Reason: Content Studio needs a stable model-consumer boundary, while Provider catalog, secrets, consent, routing, retry, fallback, transport, and execution ledger remain single-owner concerns in the Gateway. Model output must never change the research or content evidence state.
+- Evidence: the new provenance hash gate also detected and corrected a pre-existing stale `content-item.schema.json` hash; Gateway `0.2.0` at `c5f3ec49644453e0cddb56350e3b243b49e0f7da`; Content Studio public base `67aa9575850c3edc79f9dbf513d4f6e1629b4491`; canonical Gateway loopback tests for text and vision; fail-closed tests for 429, 5xx, timeout, consent expiry, route drift, capability mismatch, fallback, artifact drift, Gateway unavailability, and unsupported new facts.
+- Effective scope: the clean public Content Studio checkout only. Outputs remain `draft_only`, `candidate_only`, `not_evidence`, and `manual-only`. Current checked-in fixture and validation are `synthetic_only`; no real Provider is called.
+- Rollback: revert the Wave 3 commit. The separately installed Gateway and the private Content Studio development worktree are unchanged.

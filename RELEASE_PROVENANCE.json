@@ -5,7 +5,10 @@
   "source_baselines": {
     "content_studio_head": "0bec8c02f5a5d9830fc4df4738cbe76d6eaa9110",
     "question_research_poc_head": "51ca30ac24bf84dd838b30569aee4e3bc6c3f59e",
-    "public_sync_base": "c248b1f0e55ffc65f2b6cd57685cdb830ed504af"
+    "public_sync_base": "c248b1f0e55ffc65f2b6cd57685cdb830ed504af",
+    "model_provider_gateway_head": "c5f3ec49644453e0cddb56350e3b243b49e0f7da",
+    "wave3_public_sync_base": "67aa9575850c3edc79f9dbf513d4f6e1629b4491",
+    "question_research_poc_canonical": "2d83fc7bb0114417b045726de69f7a3f6b46242b"
   },
   "source_files": [
     {
@@ -33,17 +36,32 @@
       "release_path": "tests/test_article_visual_validation.py",
       "source_sha256": "819d1961f6c48255aebae1bb0d9676811cbe33524c4553d73b4dddc58217ae77",
       "modification": "repo-local import and fully synthetic visual plan"
+    },
+    {
+      "release_path": "scripts/model_gateway_consumer.py",
+      "source_sha256": "3e3385d2e72861cd822cb6c035045b03f88ae0cc46147e9789c9011550b5c662",
+      "modification": "new Content Studio policy adapter over canonical Gateway public contract",
+      "release_sha256": "3e3385d2e72861cd822cb6c035045b03f88ae0cc46147e9789c9011550b5c662"
+    },
+    {
+      "release_path": "tests/test_model_gateway_consumer.py",
+      "source_sha256": "2f35cd6099d8bd9e1d1cac86d7ec146f2bf6b4449a22b01747c988db0983891f",
+      "modification": "new synthetic-only canonical loopback and fail-closed regressions",
+      "release_sha256": "2f35cd6099d8bd9e1d1cac86d7ec146f2bf6b4449a22b01747c988db0983891f"
     }
   ],
   "contract_hashes": {
-    "schemas/content-item.schema.json": "317538cabca86a3a39092e2b77d597fd6cc5ed963671a46fbe4d9ae7749337ef",
+    "schemas/content-item.schema.json": "821f120e767871e49997fbc36595129843aec93f33163f922bcd005174f86e8c",
     "schemas/content-video-brief.v1.schema.json": "d5a8e7b15528b8160f67b90ca870120dd80724553dbaa0770f346446e2395ecb",
-    "schemas/vendor/research-output.v1.schema.json": "3c2e0e9a05034b1ffa3693735da128c7d3e114ddb155f11668120b974fee1009"
+    "schemas/vendor/research-output.v1.schema.json": "3c2e0e9a05034b1ffa3693735da128c7d3e114ddb155f11668120b974fee1009",
+    "schemas/content-studio-gateway-input-manifest.v1.schema.json": "3182ae3674f539e9563026b7cffe55513393f8b41c354e653dc322d6f425056d",
+    "schemas/content-studio-gateway-result.v1.schema.json": "a6ff30a6ee33caa1beef580b1020e6bbf1bbdc53bc63d807a3cb8ba121e716e5"
   },
   "synthetic_fixture_sha256": {
     "fixtures/research-output/verified.synthetic.json": "27ae62971f6754009859be87f07a47d9673484c5dea32db0f48e13ce0779a97c",
     "fixtures/research-output/negative-cases.json": "7353e5860b9dd94cc37e08a20e777be63925982b5fa0213d0d6cdd7bfa628e64",
-    "fixtures/research-output/upstream-negative-cases.synthetic.json": "023c2ccca1cb47b3d93cb464efd2f0d35e2a298532e0bf01d736a91f2778392c"
+    "fixtures/research-output/upstream-negative-cases.synthetic.json": "023c2ccca1cb47b3d93cb464efd2f0d35e2a298532e0bf01d736a91f2778392c",
+    "fixtures/model-gateway/research-input-manifest.synthetic.json": "4c794809209d0ca2c482ea3ea4a648c4000f4a98900dc3c363bb2d1f4b5da160"
   },
   "excluded_classes": [
     "private content items",
@@ -76,6 +94,13 @@
       "license": "MIT",
       "relationship": "transitive",
       "source_commit": "596bf1c8752de45fa576a52c315d6d8cc5bb1a4e"
+    },
+    {
+      "name": "model-provider-gateway",
+      "version": "0.2.0",
+      "license": "AGPL-3.0-only",
+      "source_commit": "c5f3ec49644453e0cddb56350e3b243b49e0f7da",
+      "relationship": "optional separately installed execution dependency; no source vendored"
     }
   ]
 }

@@ -1,0 +1,55 @@
+{
+  "schema_version": "content-studio-gateway-input-manifest.v1",
+  "manifest_id": "manifest-research-output-fixture-001",
+  "synthetic_only": true,
+  "source_artifact": {
+    "artifact_id": "research_output_fixture_001",
+    "artifact_type": "research-output",
+    "schema_id": "https://local.invalid/schemas/research-output.v1.schema.json",
+    "relative_path": "../research-output/verified.synthetic.json",
+    "sha256": "27ae62971f6754009859be87f07a47d9673484c5dea32db0f48e13ce0779a97c",
+    "bytes": 9957,
+    "mime_type": "application/json",
+    "synthetic_only": true
+  },
+  "gateway_artifacts": [
+    {
+      "artifact_id": "research_output_fixture_001",
+      "relative_path": "../research-output/verified.synthetic.json",
+      "sha256": "27ae62971f6754009859be87f07a47d9673484c5dea32db0f48e13ce0779a97c",
+      "bytes": 9957,
+      "mime_type": "application/json",
+      "data_type": "synthetic_research_output",
+      "purpose": "Content Studio synthetic draft-only outline candidate.",
+      "consent_required": true
+    }
+  ],
+  "context": {
+    "source_refs": [
+      "source_fixture_primary",
+      "source_fixture_video"
+    ],
+    "claim_refs": [
+      "claim_fixture_contract"
+    ],
+    "evidence_refs": [
+      "evidence_fixture_support"
+    ],
+    "unknown_refs": [],
+    "contradiction_refs": [
+      {
+        "claim_id": "claim_fixture_contract",
+        "evidence_id": "evidence_fixture_rejected_contradiction",
+        "resolution_status": "rejected",
+        "evidence_status": "rejected"
+      }
+    ],
+    "review_state": {
+      "review_status": "verified",
+      "evidence_status": "verified",
+      "ready_for_answer": true,
+      "guarded_answer_status": "verified"
+    },
+    "risk_state": "reviewed_synthetic_low_risk"
+  }
+}

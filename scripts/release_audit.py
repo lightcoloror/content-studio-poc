@@ -54,6 +54,24 @@ def audit_tree(root: Path) -> list[str]:
             elif entry.get("sha256") != hashlib.sha256(fixture.read_bytes()).hexdigest():
                 errors.append(f"fixture hash mismatch: {relative_path}")
 
+    provenance_path = root / "RELEASE_PROVENANCE.json"
+    if not provenance_path.is_file():
+        errors.append("RELEASE_PROVENANCE.json is required")
+    else:
+        provenance = json.loads(provenance_path.read_text(encoding="utf-8"))
+        recorded_hashes: dict[str, str] = {}
+        recorded_hashes.update(provenance.get("contract_hashes", {}))
+        recorded_hashes.update(provenance.get("synthetic_fixture_sha256", {}))
+        for entry in provenance.get("source_files", []):
+            if entry.get("release_path") and entry.get("release_sha256"):
+                recorded_hashes[entry["release_path"]] = entry["release_sha256"]
+        for relative_path, expected_hash in sorted(recorded_hashes.items()):
+            release_file = root / relative_path
+            if not release_file.is_file():
+                errors.append(f"provenance file is missing: {relative_path}")
+            elif hashlib.sha256(release_file.read_bytes()).hexdigest() != expected_hash:
+                errors.append(f"provenance hash mismatch: {relative_path}")
+
     content_files = [
         relative.as_posix()
         for path, relative in iter_files(root / "content/items")

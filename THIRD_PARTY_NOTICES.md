@@ -44,8 +44,18 @@ The installed distribution also carries the upstream markdown-it acknowledgement
 
 ## Upstream research-output contract snapshot
 
-`schemas/vendor/research-output.v1.schema.json` is an exact first-party contract snapshot from `question-research-poc` commit `51ca30ac24bf84dd838b30569aee4e3bc6c3f59e`, SHA-256 `3c2e0e9a05034b1ffa3693735da128c7d3e114ddb155f11668120b974fee1009`. It is included under this repository's Apache-2.0 license with provenance preserved.
+`schemas/vendor/research-output.v1.schema.json` is an exact first-party contract snapshot from `question-research-poc` commit `51ca30ac24bf84dd838b30569aee4e3bc6c3f59e`, SHA-256 `3c2e0e9a05034b1ffa3693735da128c7d3e114ddb155f11668120b974fee1009`. It is included under this repository's Apache-2.0 license with provenance preserved. The snapshot remains byte-identical to the canonical schema at question-research-poc commit `2d83fc7bb0114417b045726de69f7a3f6b46242b`.
+
+## Optional Model Provider Gateway integration
+
+- Project: `model-provider-gateway`
+- Canonical commit: `c5f3ec49644453e0cddb56350e3b243b49e0f7da`
+- Version: `0.2.0`
+- License: AGPL-3.0-only
+- Use: separately installed execution service/library consumed through its versioned public Python contract; no Gateway source, Provider catalog, credential implementation, or LiteLLM source is vendored here.
+
+The Apache-2.0 license of this repository does not relicense the separately installed Gateway. Operators who enable that optional integration must comply with the Gateway and its dependency licenses independently.
 
 ## Not bundled
 
-Lucide, Pexels media, personal photographs, model weights, hosted services, and external platform SDKs are not bundled or required by this release.
+Lucide, Pexels media, personal photographs, model weights, hosted services, Provider credentials, LiteLLM source, and external platform SDKs are not bundled by this release.
